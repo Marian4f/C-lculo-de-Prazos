@@ -1,11 +1,10 @@
-/* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
-    background-color: #e0f2f1; /* Verde limão claro */
-    background-image: url('path/to/your-image.jpg'); /* Caminho para a sua imagem de fundo */
-    background-size: cover; /* Ajusta a imagem para cobrir toda a área do fundo */
-    background-position: center; /* Centraliza a imagem */
-    color: #2e7d32; /* Verde limão escuro */
+    background-color: #e0f2f1;
+    background-image: url('path/to/your-image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #2e7d32;
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,63 +13,53 @@ body {
     height: 100vh;
 }
 
-/* Container principal */
 .container {
-    background-color: #ffffff; /* Branco para contraste */
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(46, 125, 50, 0.3); /* Sombra verde limão escura */
+    box-shadow: 0 0 15px rgba(46, 125, 50, 0.3);
     max-width: 400px;
     width: 100%;
     text-align: center;
 }
 
-/* Estilo do título */
 h1 {
-    color: #66bb6a; /* Verde limão médio */
+    color: #66bb6a;
     margin-bottom: 20px;
 }
 
-/* Estilo dos rótulos */
 label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #2e7d32; /* Verde limão escuro */
+    color: #2e7d32;
 }
 
-/* Estilo dos campos de entrada e da caixa de texto */
-input[type="text"], input[type="number"], textarea {
-    width: calc(100% - 20px); /* Ajuste da largura */
+input[type="text"], input[type="number"], textarea, input[type="submit"] {
+    width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 20px;
-    border: 2px solid #66bb6a; /* Verde limão médio */
+    border: 2px solid #66bb6a;
     border-radius: 4px;
     font-size: 16px;
-    color: #2e7d32; /* Verde limão escuro */
-    background-color: #ffffff; /* Branco para contraste */
-    box-sizing: border-box; /* Inclui padding e border na largura total */
+    color: #2e7d32;
+    background-color: #ffffff;
+    box-sizing: border-box;
 }
 
-/* Estilo do botão */
 input[type="submit"] {
-    width: 100%;
-    background-color: #81c784; /* Verde limão claro */
+    background-color: #81c784;
     color: white;
-    padding: 10px;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
     cursor: pointer;
 }
 
 input[type="submit"]:hover {
-    background-color: #66bb6a; /* Verde limão médio */
+    background-color: #66bb6a;
 }
 
-/* Estilo específico da caixa de texto (textarea) */
 textarea {
-    height: 50px; /* Altura da caixa de texto */
-    resize: none; /* Impede o redimensionamento */
-    text-align: center; /* Centraliza o texto */
+    height: 50px;
+    resize: none;
+    text-align: center;
 }
