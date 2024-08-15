@@ -5,7 +5,7 @@ body {
     background-image: url('path/to/your-image.jpg'); /* Caminho para a sua imagem de fundo */
     background-size: cover; /* Ajusta a imagem para cobrir toda a área do fundo */
     background-position: center; /* Centraliza a imagem */
-    color: #99ffcc; /* Verde limão escuro */
+    color: #2e7d32; /* Verde limão escuro */
     margin: 0;
     padding: 0;
     display: flex;
