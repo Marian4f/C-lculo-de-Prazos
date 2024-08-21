@@ -7,7 +7,7 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    background-color: #e8f5e9; /* Cor de fundo padrão */
+    background-color: #e8f5e9;
 }
 
 .layout-container {
@@ -18,29 +18,33 @@ body {
     max-width: 1200px;
     padding: 20px;
     box-sizing: border-box;
-    position: relative; /* Necessário para o logo e o formulário */
+    position: relative;
 }
 
 .logo-container {
     position: absolute;
     top: 250px;
-    left: 10px;
-    z-index: 2; /* Garante que o logo esteja acima do formulário */
+    left: 20px;
+    z-index: 2;
 }
 
 .logo-container img {
-    width: 300px; /* Ajuste o tamanho do logo conforme necessário */
+    width: 300px;
     height: auto;
 }
 
 .formulario-container {
-    background-color: #ffffff; /* Cor de fundo sólida do formulário */
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 100%;
-    text-align: center; /* Centraliza o texto dentro do formulário */
+    position: relative;
+}
+
+h1, label, textarea, h2 {
+    text-align: center;
 }
 
 h1 {
@@ -48,22 +52,21 @@ h1 {
     margin-bottom: 25px;
     font-size: 1.8em;
     font-weight: bold;
-    text-align: center; /* Centraliza o título */
 }
+
 h2 {
     color: #388e3c;
-    margin-bottom: px;
+    margin-bottom: 20px;
     font-size: 1.5em;
     font-weight: bold;
-    text-align: center; /* Centraliza o título */
 }
+
 label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
     color: #2e7d32;
     font-size: 1.1em;
-    text-align: center; /* Centraliza os labels */
 }
 
 input[type="text"], input[type="number"], textarea {
@@ -77,7 +80,6 @@ input[type="text"], input[type="number"], textarea {
     background-color: #ffffff;
     box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
-    text-align: center; /* Centraliza o texto dentro dos campos de entrada */
 }
 
 input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
@@ -94,10 +96,9 @@ button {
     color: #ffffff;
     background-color: #66bb6a;
     cursor: pointer;
-    width: calc(50% - 10px);
-    margin: 10px 5px 0 5px;
+    width: 100%;
+    margin-bottom: 10px;
     transition: background-color 0.3s, box-shadow 0.3s;
-    text-align: center; /* Centraliza o texto dentro dos botões */
 }
 
 button:hover {
@@ -112,9 +113,4 @@ textarea {
     background-color: #f1f8e9;
     color: #2e7d32;
     border-color: #81c784;
-}
-
-.button-container {
-    display: flex;
-    justify-content: center; /* Centraliza os botões dentro do container */
 }
