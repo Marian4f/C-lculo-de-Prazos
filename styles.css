@@ -1,65 +1,120 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e0f2f1;
-    background-image: url('path/to/your-image.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #2e7d32;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
+    background-color: #e8f5e9; /* Cor de fundo padrão */
 }
 
-.container {
-    background-color: #ffffff;
+.layout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(46, 125, 50, 0.3);
+    box-sizing: border-box;
+    position: relative; /* Necessário para o logo e o formulário */
+}
+
+.logo-container {
+    position: absolute;
+    top: 250px;
+    left: 10px;
+    z-index: 2; /* Garante que o logo esteja acima do formulário */
+}
+
+.logo-container img {
+    width: 300px; /* Ajuste o tamanho do logo conforme necessário */
+    height: auto;
+}
+
+.formulario-container {
+    background-color: #ffffff; /* Cor de fundo sólida do formulário */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 100%;
-    text-align: center;
+    text-align: center; /* Centraliza o texto dentro do formulário */
 }
 
 h1 {
-    color: #66bb6a;
-    margin-bottom: 20px;
+    color: #388e3c;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center; /* Centraliza o título */
 }
-
+h2 {
+    color: #388e3c;
+    margin-bottom: px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center; /* Centraliza o título */
+}
 label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: bold;
     color: #2e7d32;
+    font-size: 1.1em;
+    text-align: center; /* Centraliza os labels */
 }
 
-input[type="text"], input[type="number"], textarea, input[type="submit"] {
-    width: calc(100% - 20px);
-    padding: 10px;
+input[type="text"], input[type="number"], textarea {
+    width: 100%;
+    padding: 12px;
     margin-bottom: 20px;
-    border: 2px solid #66bb6a;
-    border-radius: 4px;
-    font-size: 16px;
-    color: #2e7d32;
+    border: 2px solid #81c784;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #388e3c;
     background-color: #ffffff;
     box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    text-align: center; /* Centraliza o texto dentro dos campos de entrada */
 }
 
-input[type="submit"] {
-    background-color: #81c784;
-    color: white;
+input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
+    border-color: #66bb6a;
+    box-shadow: 0 0 10px rgba(102, 187, 106, 0.3);
+    outline: none;
+}
+
+button {
+    padding: 12px;
     border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    color: #ffffff;
+    background-color: #66bb6a;
     cursor: pointer;
+    width: calc(50% - 10px);
+    margin: 10px 5px 0 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-align: center; /* Centraliza o texto dentro dos botões */
 }
 
-input[type="submit"]:hover {
-    background-color: #66bb6a;
+button:hover {
+    background-color: #4caf50;
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
 }
 
 textarea {
-    height: 50px;
+    height: 60px;
     resize: none;
     text-align: center;
+    background-color: #f1f8e9;
+    color: #2e7d32;
+    border-color: #81c784;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centraliza os botões dentro do container */
 }

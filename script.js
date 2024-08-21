@@ -1,33 +1,70 @@
-document.getElementById('formulario').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    const formulario = document.getElementById('formulario');
+    const dataInicialInput = document.getElementById('dataInicial');
+    const diasInput = document.getElementById('dias');
+    const resultadoTextarea = document.getElementById('resultado');
 
-    const dataInicialStr = document.getElementById('dataInicial').value;
-    const dias = parseInt(document.getElementById('dias').value);
+    // Função para formatar a data
+    const formatDate = (value) => {
+        const cleanValue = value.replace(/\D/g, '');
+        let formattedValue = '';
 
-    const regexData = /^\d{2}\/\d{2}\/\d{4}$/;
-    if (!regexData.test(dataInicialStr)) {
-        alert("Por favor, insira a data no formato dd/mm/yyyy.");
-        return;
-    }
+        if (cleanValue.length <= 2) {
+            formattedValue = cleanValue;
+        } else if (cleanValue.length <= 4) {
+            formattedValue = cleanValue.slice(0, 2) + '/' + cleanValue.slice(2);
+        } else if (cleanValue.length <= 8) {
+            formattedValue = cleanValue.slice(0, 2) + '/' + cleanValue.slice(2, 4) + '/' + cleanValue.slice(4);
+        } else {
+            formattedValue = cleanValue.slice(0, 2) + '/' + cleanValue.slice(2, 4) + '/' + cleanValue.slice(4, 8);
+        }
 
-    const partesData = dataInicialStr.split('/');
-    const dia = parseInt(partesData[0], 10);
-    const mes = parseInt(partesData[1], 10) - 1;
-    const ano = parseInt(partesData[2], 10);
-    const dataInicial = new Date(ano, mes, dia);
+        return formattedValue;
+    };
 
-    if (isNaN(dataInicial.getTime())) {
-        alert("Data inválida. Por favor, insira uma data válida no formato dd/mm/yyyy.");
-        return;
-    }
+    // Adiciona o evento de input ao campo de data
+    dataInicialInput.addEventListener('input', (event) => {
+        event.target.value = formatDate(event.target.value);
+    });
 
-    dataInicial.setDate(dataInicial.getDate() + dias);
+    // Adiciona o evento de blur para validar o formato da data
+    dataInicialInput.addEventListener('blur', (event) => {
+        const value = event.target.value;
+        const [day, month, year] = value.split('/').map(num => parseInt(num, 10));
+        
+        if (day > 31 || month > 12 || year < 1000 || year > 9999) {
+            alert('Data inválida. Por favor, insira uma data válida no formato dd/mm/yyyy.');
+            event.target.focus();
+        }
+    });
 
-    const diaFuturo = String(dataInicial.getDate()).padStart(2, '0');
-    const mesFuturo = String(dataInicial.getMonth() + 1).padStart(2, '0');
-    const anoFuturo = dataInicial.getFullYear();
+    // Adiciona o evento de submit ao formulário
+    formulario.addEventListener('submit', (event) => {
+        event.preventDefault(); // Previne o envio do formulário
 
-    const dataFuturaStr = `${diaFuturo}/${mesFuturo}/${anoFuturo}`;
+        const dataInicial = dataInicialInput.value;
+        const dias = parseInt(diasInput.value, 10);
 
-    document.getElementById('resultado').value = dataFuturaStr;
+        if (!dataInicial || isNaN(dias)) {
+            alert('Por favor, preencha todos os campos corretamente.');
+            return;
+        }
+
+        const [day, month, year] = dataInicial.split('/').map(num => parseInt(num, 10));
+        const data = new Date(year, month - 1, day); // Ajusta mês (0-indexado)
+
+        if (isNaN(data.getTime())) {
+            alert('Data inválida. Por favor, insira uma data válida.');
+            return;
+        }
+
+        // Calcula a data futura
+        const vencimento = new Date(data.getTime() + dias * 24 * 60 * 60 * 1000);
+        const diaVencimento = String(vencimento.getDate()).padStart(2, '0');
+        const mesVencimento = String(vencimento.getMonth() + 1).padStart(2, '0'); // Mês é 0-indexado
+        const anoVencimento = vencimento.getFullYear();
+
+        // Exibe o resultado
+        resultadoTextarea.value = `${diaVencimento}/${mesVencimento}/${anoVencimento}`;
+    });
 });

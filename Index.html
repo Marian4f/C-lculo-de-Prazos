@@ -7,20 +7,28 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Calculadora de Vencimento</h1>
-        <form id="formulario">
-            <label for="dataInicial">Data de Fabricação (dd/mm/yyyy):</label>
-            <input type="text" id="dataInicial" placeholder="XX/XX/XXXX" required><br><br>
+    <div class="layout-container">
+        <div class="logo-container">
+            <img src="img/2.png" alt="Logo">
+        </div>
+        <div class="formulario-container">
+            <h1>Calculadora de Vencimento</h1>
+            <form id="formulario">
+                <label for="dataInicial">Data de Fabricação :</label>
+                <input type="text" id="dataInicial" placeholder="dd/mm/yyyy" required><br><br>
 
-            <label for="dias">Prazo para o vencimento:</label>
-            <input type="number" id="dias" required><br><br>
+                <label for="dias">Prazo para o vencimento:<br> (em dias)</label>
+                <input type="number" id="dias" required><br><br>
 
-            <input type="submit" value="Calcular">
-        </form>
+                <div class="button-container">
+                    <button type="submit">Calcular</button>
+                    <button type="reset">Limpar</button>
+                </div>
 
-        <h2>Data de Vencimento</h2>
-        <textarea id="resultado" readonly></textarea>
+                <h2>Data de Vencimento</h2>
+                <textarea id="resultado" readonly></textarea>
+            </form>
+        </div>
     </div>
 
     <script src="script.js"></script>
